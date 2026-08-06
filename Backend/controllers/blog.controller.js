@@ -30,7 +30,7 @@ export const getAllBlogs = async(req,res)=>{
 //Each slug's extended version of blog
 export const getBlogBySlug = async (req,res)=>{
     try{
-        const blog = await Blog.findOne({ slug: req.para.slug})
+        const blog = await Blog.findOne({ slug: req.params.slug})
         .populate(
             "author",
             "name profileImage bio"

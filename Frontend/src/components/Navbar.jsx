@@ -20,31 +20,31 @@ const Navbar = () => {
         }
     };
     return (
-        <nav className='bg-cream border-b border-ink/10 px-8 py-4 flex items-center justify-between'>
-            <Link to="/" className='font-serif text-2xl text-ink font-semibold'>
+        <nav className='bg-cream border-b border-ink/10 px-8 py-5 flex items-center justify-between sticky top-0 z-50'>
+            <Link to="/" className='font-serif text-2xl text-ink font-black tracking-tight'>
                 Blogsy .
             </Link>
-            <div className='flex items-center gap-6'>
-                <Link to="/" className='text-ink hover:opacity-60 transition'>
+            <div className='flex items-center gap-9'>
+                <Link to="/" className='text-[15px] text-ink hover:opacity-60 transition'>
                     Home
                 </Link>
                 {isAuthenticated && user?.role === "admin" && (
-                    <Link to="/create-blog" className='text-ink hover:opacity-60 transition'>
-                        Create Blog
+                    <Link to="/create-blog" className='text-[15px] text-ink hover:opacity-60 transition'>
+                        Write
                     </Link>
                 )}
                 {isAuthenticated ?(
                     <button onClick={handleLogout}
-                        className='bg-ink text-cream px-4 py-2 rounded-md hover:opacity-90 transition'>
-                            Logout
+                        className='text-[15px] text-ink flex items-center gap-1.5 hover:opacity-90 transition'>
+                            Logout <span>→</span>
                         </button>
                 ):(
                     <>
-                        <Link to="/login" className='text-ink hover:opacity-60 transition'>
+                        <Link to="/login" className='text-[15px] text-ink hover:opacity-60 transition'>
                             Login
                         </Link>
-                        <Link to="/register" className='bg-ink text-cream px-4 py-2 rounded-md hover:opacity-90 transition'>
-                            Register
+                        <Link to="/register" className='text-[15px] text-ink flex items-center gap-1.5 hover:opacity-60 transition'>
+                            Register <span>→</span>
                         </Link>
                     </>
                 )}

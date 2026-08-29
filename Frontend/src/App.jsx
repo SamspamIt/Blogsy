@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setUser } from './redux/authSlice';
 import axiosInstance from './api/axiosInstance';
+import Footer from './components/Footer';
 
 function App(){
 
@@ -49,6 +50,7 @@ function App(){
                 <Route path='/blog/:slug' element={<BlogDetail/>}  />
                 <Route path='/create-blog' element={< CreateBlog/>} />
             </Routes>
+            <Footer/>
         </>
     );
 };

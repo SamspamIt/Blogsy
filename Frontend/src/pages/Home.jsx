@@ -52,6 +52,70 @@ const Home = () => {
                     </Link>
                 </div>
             </div>
+
+            {/* What you get / numbered list section */}
+            <div className='px-8 py-20'>
+                <div className='max-w-4xl mx-auto'>
+                    <h2 className='font-serif text-3xl md:text-2xl-4xl text-ink text-center mb-14'>
+                        Everything you need to <br/> learn, build, and ship.
+                    </h2>
+                    <div className='border-t border-ink/15'>
+                        <div className='flex justify-between items-start py-6 border-b border-ink/15'>
+                            <div>
+                                <h3 className='font-serif text-xl font-bold text-ink'>
+                                    Read
+                                </h3>
+                                <p className='text-ink/60 text-sm mt-1'>
+                                    Real debugging stories and project breakdowns, written as they happened.
+                                </p>
+                            </div>
+                            <span className='text-ink/30 text-sm font-mono'>
+                                001
+                            </span>
+                        </div>
+                        <div className='flex justify-between items-start py-6 border-b border-ink/15'>
+                            <div>
+                                <h3 className='font-serif text-xl font-bold text-ink'>
+                                    Learn
+                                </h3>
+                                <p className='text-ink/60 text-sm mt-1'>
+                                    Logic and concepts explained step, by step, no assumed knowledge.
+                                </p>
+                            </div>
+                            <span className='text-ink/30 text-sm font-mono'>
+                                002
+                            </span>
+                        </div>
+                        <div className='flex justify-between items-start py-6 border-b border-ink/15'>
+                            <div>
+                                <h3 className='font-serif text-xl font-bold text-ink'>
+                                    Build
+                                </h3>
+                                <p className='text-ink/60 text-sm mt-1'>
+                                    Practical takeaways you can apply to your own projects immediately.
+                                </p>
+                            </div>
+                            <span className='text-ink/30 text-sm font-mono'>
+                                003
+                            </span>
+                        </div>
+                        <div className='flex justify-between items-start py-6 border-b border-ink/15'>
+                            <div>
+                                <h3 className='font-serif text-xl font-bold text-ink'>
+                                    Ship
+                                </h3>
+                                <p className='text-ink/60 text-sm mt-1'>
+                                    Focused on progress — things that actually get finished and deployed.
+                                </p>
+                            </div>
+                            <span className='text-ink/30 text-sm font-mono'>
+                                004
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* Why Blogsy */}
             <div className='px-8 pb-20'>
                 <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6'>
@@ -90,6 +154,34 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Featured Blog Section */}
+            {blogs.length > 0 && (
+                <div className='px-8 pb-4'>
+                    <div className='max-w-4xl mx-auto bg-white/50 border border-ink/10 grid grid-cols-1 md:grid-cols-2 gap-0'>
+                        {blogs[0].coverImage && (
+                            <img src={blogs[0].coverImage} alt={blogs[0].title}
+                                className='w-full h-64 md:h-full object-cover'/>
+                        )}
+                        <div className='p-8 flex flex-col justify-center'>
+                            <span className='text-sm uppercase tracking-widest text-ink/50 mb-2'>
+                                Featured
+                            </span>
+                            <h3 className='font-serif text-2xl font-bold text-ink mb-3'>
+                                {blogs[0].title}
+                            </h3>
+                            <p className='text-ink/60 text-sm mb-6'>
+                                {blogs[0].excerpt}
+                            </p>
+                            <Link to={`/blog/${blogs[0].slug}`}
+                                className='bg-ink text-cream px-5 py-2.5 text-sm w-fit hover:opacity-85 transition'>
+                                    Read full post
+                                </Link>
+                        </div>
+                    </div>
+                </div>
+            )}
+            
             {/* Blog List Section */}
             <div id='blogs' className='max-w-4xl mx-auto px-8 pb-20'>
                 {blogs.length === 0 ?(

@@ -36,7 +36,7 @@ const Home = () => {
         <div className='bg-cream min-h-screen'>
 
             {/* Hero Section */}
-            <div className='text-center px-8 pt-24 pb-20'>
+            <div className='text-center px-8 pt-24 pb-20 bg-linear-to-br from-blue-100 via-cream to-pink-100'>
                 <h1 className='font-serif text-5xl text-ink md:text-7xl leading-[1.05] max-w-4xl mx-auto'>
                     Tech Knowledge, <br/> Built for curios minds.
                 </h1>

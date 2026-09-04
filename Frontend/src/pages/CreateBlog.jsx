@@ -1,8 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axiosInstance from '../api/axiosInstance';
+import Button from '../components/ui/Button';
+import { Send } from 'lucide-react';
 
 const CreateBlog = () => {
 
@@ -142,11 +143,19 @@ const CreateBlog = () => {
                                 className='mt-3 w-full max-h-64 object-cover rounded-md'/>
                         )}
                     </div>
-                    <button type='submit'
-                        disabled={uploading}
-                        className='bg-ink text-cream py-2 rounded-md hover:opacity-90 transition disabled:opacity-50'>
-                        {uploading ? "Uploading Image..." :"Publish Blog"}
-                    </button>
+                    <div className="mt-2">
+                        <Button
+                            type="submit"
+                            variant="primary"
+                            size="lg"
+                            fullWidth
+                            loading={uploading}
+                            icon={Send}
+                            iconPosition="right"
+                        >
+                            Publish Blog
+                        </Button>
+                    </div>
                 </form>
         </div>
     );

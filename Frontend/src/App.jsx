@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from './components/Navbar';
@@ -50,10 +52,12 @@ function App(){
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>} />
+                <Route path='/blogs' element={<Blogs/>} />
+                <Route path='/about' element={<About/>} />
                 <Route path='/login' element={<Login/>} />
                 <Route path='/register' element={<Register/>} />
-                <Route path='/blog/:slug' element={<BlogDetail/>}  />
-                <Route path='/create-blog' element={< CreateBlog/>} />
+                <Route path='/blog/:slug' element={<BlogDetail/>} />
+                <Route path='/create-blog' element={<CreateBlog/>} />
             </Routes>
             <Footer/>
         </>

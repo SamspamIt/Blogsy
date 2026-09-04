@@ -1,10 +1,43 @@
 @import "tailwindcss";
 
-@theme{
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
     --color-cream: #f5f1e8;
     --color-ink: #0a0a0a;
     --font-serif: "Playfair Display", serif;
 }
-body{
-    background-color: #f5f1e8;
+
+:root {
+    --color-cream: #f5f1e8;
+    --color-ink: #0a0a0a;
+}
+
+html.dark {
+    --color-cream: #121318;
+    --color-ink: #f4efe6;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode card clean styling */
+.card-clean {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+html.dark .card-clean {
+    background-color: rgba(24, 25, 32, 0.8);
+    border: 1px solid rgba(244, 239, 230, 0.1);
+}
+
+html.dark input,
+html.dark textarea {
+    background-color: rgba(26, 27, 35, 0.8) !important;
+    color: #f4efe6 !important;
 }

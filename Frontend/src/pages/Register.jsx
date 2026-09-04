@@ -1,22 +1,27 @@
-import React from 'react';
-import { useState } from 'react';
-import { useNavigate , Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axiosInstance from "../api/axiosInstance";
 import { setUser } from "../redux/authSlice";
+import Button from '../components/ui/Button';
+import { UserPlus, Eye, EyeOff } from 'lucide-react';
 
 const Register = () => {
 
     const [name, setName]= useState("");
     const [email, setEmail]= useState("");
     const [password, setPassword]= useState("");
-    const [error, setError]= useState(""); // show error
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError]= useState("");
+    const [loading, setLoading] = useState(false);
 
-    const navigate = useNavigate(); //navigate to other page
-    const dispatch = useDispatch(); //send data to redux store
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = async(e)=>{
-        e.preventDefault(); //prevent reload
+        e.preventDefault();
+        setLoading(true);
+        setError("");
 
         try{
             const response = await axiosInstance.post("/auth/register",{
@@ -25,12 +30,13 @@ const Register = () => {
                 password,
             });
 
-            dispatch(setUser(response.data)); //receives user's data from backend after response 
-            
+            dispatch(setUser(response.data));
             navigate("/");
 
         }catch(err){
             setError(err.response?.data?.message || "Something went wrong");
+        }finally{
+            setLoading(false);
         }
     };
 
@@ -42,7 +48,7 @@ const Register = () => {
                 <div className='p-8 md:p-12 flex flex-col justify-center order-2 md:order-1'>
                     <div className='flex items-center gap-2 mb-8'>
                         <span className='font-serif text-xl text-ink font-black'>
-                            Blogsy
+                            Blogsy.
                         </span>
                     </div>
                     <h1 className='font-serif text-2xl text-ink font-bold mb-1'>
@@ -53,7 +59,7 @@ const Register = () => {
                     </p>
                     <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
                         {error && (
-                            <p className='text-red-600 text-sm'>
+                            <p className='text-red-600 text-sm bg-red-50 p-3 rounded-lg border border-red-100'>
                                 {error}
                             </p>
                         )}
@@ -85,22 +91,42 @@ const Register = () => {
                             <label className='block text-sm text-ink mb-1.5'>
                                 Password
                             </label>
-                            <input type='password'
-                                placeholder='Create a password'
-                                value={password}
-                                onChange={(e)=>setPassword(e.target.value)}
-                                className='w-full border border-ink/15 rounded-lg px-4 py-2.5 text-sm outline-none focus:border-ink bg-white/70 transition'
-                                required
-                            />
+                            <div className='relative'>
+                                <input type={showPassword ? 'text' : 'password'}
+                                    placeholder='Create a password'
+                                    value={password}
+                                    onChange={(e)=>setPassword(e.target.value)}
+                                    className='w-full border border-ink/15 rounded-lg px-4 py-2.5 pr-11 text-sm outline-none focus:border-ink bg-white/70 transition'
+                                    required
+                                />
+                                <button
+                                    type='button'
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className='absolute right-3 top-1/2 -translate-y-1/2 text-ink/50 hover:text-ink transition-colors p-1 rounded-md focus:outline-none'
+                                    title={showPassword ? "Hide password" : "Show password"}
+                                    aria-label="Toggle password visibility"
+                                >
+                                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                                </button>
+                            </div>
                         </div>
-                        <button type='submit'
-                            className='bg-ink text-cream py-3 rounded-lg text-sm font-medium hover:opacity-90 transition mt-2'>
-                            Register
-                        </button>
+                        <div className="mt-2">
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                size="md"
+                                fullWidth
+                                loading={loading}
+                                icon={UserPlus}
+                                iconPosition="right"
+                            >
+                                Register
+                            </Button>
+                        </div>
                     </form>
                     <p className='text-ink/60 text-sm mt-6 text-center'>
                         Already have an account?{" "}
-                        <Link to="/login" className='text-ink font-semibold hover:opacity-70'>
+                        <Link to="/login" className='text-ink font-semibold hover:underline'>
                             Login
                         </Link>
                     </p>

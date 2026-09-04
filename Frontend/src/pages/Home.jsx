@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
+import Button from '../components/ui/Button';
+import { Compass, UserPlus, ArrowRight } from 'lucide-react';
 
 const Home = () => {
 
@@ -38,18 +39,18 @@ const Home = () => {
             {/* Hero Section */}
             <div className='text-center px-8 pt-24 pb-20 bg-linear-to-br from-blue-100 via-cream to-pink-100'>
                 <h1 className='font-serif text-5xl text-ink md:text-7xl leading-[1.05] max-w-4xl mx-auto'>
-                    Tech Knowledge, <br/> Built for curios minds.
+                    Tech Knowledge, <br/> Built for curious minds.
                 </h1>
                 <p className='text-ink/60 text-lg mt-6 max-w-xl mx-auto'>
                     Real debugging stories, project breakdowns, and lessons from building things that actually ship.
                 </p>
-                <div className='flex items-center justify-center gap-4 mt-10'>
-                    <a href='#blogs' className='bg-ink text-cream px-6 py-3 text-sm flex-center gap-2 hover:opacity-85 transition'>
-                        <span>▪</span>Explore blogs
-                    </a>
-                    <Link to="/register" className='border border-ink text-ink px-6 py-3 flex items-center gap-2 hover:bg-ink hover:text-cream transition'>
-                        <span>▪</span>Join Blogsy
-                    </Link>
+                <div className='flex flex-wrap items-center justify-center gap-4 mt-10'>
+                    <Button to="/blogs" size="lg" variant="primary" icon={Compass} iconPosition="left">
+                        Explore blogs
+                    </Button>
+                    <Button to="/register" size="lg" variant="outline" icon={UserPlus} iconPosition="left">
+                        Join Blogsy
+                    </Button>
                 </div>
             </div>
 
@@ -173,10 +174,17 @@ const Home = () => {
                             <p className='text-ink/60 text-sm mb-6'>
                                 {blogs[0].excerpt}
                             </p>
-                            <Link to={`/blog/${blogs[0].slug}`}
-                                className='bg-ink text-cream px-5 py-2.5 text-sm w-fit hover:opacity-85 transition'>
+                            <div className="pt-2">
+                                <Button
+                                    to={`/blog/${blogs[0].slug}`}
+                                    variant="primary"
+                                    size="md"
+                                    icon={ArrowRight}
+                                    iconPosition="right"
+                                >
                                     Read full post
-                                </Link>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>

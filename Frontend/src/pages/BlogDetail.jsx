@@ -1,9 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
-
-
+import Button from "../components/ui/Button";
+import { ArrowLeft } from "lucide-react";
 
 const BlogDetail = () => {
 
@@ -48,10 +47,17 @@ const BlogDetail = () => {
     return (
         <div className='bg-cream min-h-screen px-8 py-12'>
             <div className='max-w-6xl mx-auto'>
-                <Link to="/" 
-                    className='text-ink/60 text-sm hover:opacity-70 block mb-10'>
-                        ← Back to all blogs
-                </Link>
+                <div className="mb-10">
+                    <Button
+                        to="/"
+                        variant="ghost"
+                        size="sm"
+                        icon={ArrowLeft}
+                        iconPosition="left"
+                    >
+                        Back to all blogs
+                    </Button>
+                </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-start'>
                     
                     {/* Left Side */}

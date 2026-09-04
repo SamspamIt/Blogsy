@@ -33,9 +33,14 @@ function App(){
 
     if(checkingAuth){
         return(
-            <div className='bg-cream min-h-screen flex items-center justify-center'>
-                <p className='text-ink'>
-                    Loading....
+            <div className='bg-cream min-h-screen flex flex-col items-center justify-center gap-6'>
+                <div className='flex gap-2'>
+                    <span className='w-4 h-4 bg-ink rounded-full animate-bounce [animation-delay:-0.3s]'></span>
+                    <span className='w-4 h-4 bg-ink rounded-full animate-bounce [animation-delay:-0.15s]'></span>
+                    <span className='w-4 h-4 bg-ink rounded-full animate-bounce'></span>
+                </div>
+                <p className='font-serif text-xl text-ink'>
+                    Getting your stories ready...
                 </p>
             </div>
         )

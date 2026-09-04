@@ -28,68 +28,64 @@ const Navbar = () => {
     const isActive = (path) => location.pathname === path;
 
     return (
-        <header className="sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-ink/10 transition-all">
-            <nav className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-ink/10 transition-all shadow-xs">
+            <nav className="max-w-7xl mx-auto px-6 md:px-10 py-3.5 flex items-center justify-between">
                 {/* Brand Logo */}
                 <Link to="/" className="flex items-center gap-2 group focus:outline-none">
-                    <div className="w-8 h-8 rounded-lg bg-ink text-cream flex items-center justify-center group-hover:rotate-6 transition-transform">
+                    <div className="w-8 h-8 rounded-lg bg-ink text-cream flex items-center justify-center group-hover:rotate-6 transition-transform shadow-xs">
                         <Feather size={18} />
                     </div>
                     <span className="font-serif text-2xl text-ink font-black tracking-tight flex items-center">
-                        Blogsy<span className="text-amber-800 text-3xl leading-none">.</span>
+                        Blogsy<span className="text-amber-700 text-3xl leading-none">.</span>
                     </span>
                 </Link>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-2">
                     <Link
                         to="/"
-                        className={`text-sm font-medium transition-colors duration-200 relative py-1 ${
-                            isActive('/') ? 'text-ink font-semibold' : 'text-ink/70 hover:text-ink'
+                        className={`text-sm font-medium transition-all duration-200 px-4 py-2 rounded-full ${
+                            isActive('/') 
+                                ? 'bg-ink/10 text-ink font-semibold' 
+                                : 'text-ink/70 hover:text-ink hover:bg-ink/5'
                         }`}
                     >
                         Home
-                        {isActive('/') && (
-                            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ink rounded-full" />
-                        )}
                     </Link>
 
                     <Link
                         to="/blogs"
-                        className={`text-sm font-medium transition-colors duration-200 relative py-1 ${
-                            isActive('/blogs') ? 'text-ink font-semibold' : 'text-ink/70 hover:text-ink'
+                        className={`text-sm font-medium transition-all duration-200 px-4 py-2 rounded-full ${
+                            isActive('/blogs') 
+                                ? 'bg-ink/10 text-ink font-semibold' 
+                                : 'text-ink/70 hover:text-ink hover:bg-ink/5'
                         }`}
                     >
                         Blogs
-                        {isActive('/blogs') && (
-                            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ink rounded-full" />
-                        )}
                     </Link>
 
                     <Link
                         to="/about"
-                        className={`text-sm font-medium transition-colors duration-200 relative py-1 ${
-                            isActive('/about') ? 'text-ink font-semibold' : 'text-ink/70 hover:text-ink'
+                        className={`text-sm font-medium transition-all duration-200 px-4 py-2 rounded-full ${
+                            isActive('/about') 
+                                ? 'bg-ink/10 text-ink font-semibold' 
+                                : 'text-ink/70 hover:text-ink hover:bg-ink/5'
                         }`}
                     >
                         About
-                        {isActive('/about') && (
-                            <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ink rounded-full" />
-                        )}
                     </Link>
 
                     {isAuthenticated && user?.role === "admin" && (
                         <Link
                             to="/create-blog"
-                            className={`text-sm font-medium transition-colors duration-200 relative py-1 flex items-center gap-1.5 ${
-                                isActive('/create-blog') ? 'text-ink font-semibold' : 'text-ink/70 hover:text-ink'
+                            className={`text-sm font-medium transition-all duration-200 px-4 py-2 rounded-full flex items-center gap-1.5 ${
+                                isActive('/create-blog') 
+                                    ? 'bg-ink/10 text-ink font-semibold' 
+                                    : 'text-ink/70 hover:text-ink hover:bg-ink/5'
                             }`}
                         >
-                            <PenSquare size={16} />
+                            <PenSquare size={15} />
                             Write
-                            {isActive('/create-blog') && (
-                                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-ink rounded-full" />
-                            )}
                         </Link>
                     )}
                 </div>

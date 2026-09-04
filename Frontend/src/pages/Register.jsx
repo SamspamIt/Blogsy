@@ -41,8 +41,8 @@ const Register = () => {
     };
 
     return (
-        <div className='bg-cream min-h-screen flex items-center justify-center px-4 py-12'>
-            <div className='w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 bg-white/60 border border-ink/10 rounded-2xl overflow-hidden shadow-sm'>
+        <div className='bg-cream min-h-screen flex items-center justify-center px-4 py-12 transition-colors duration-300'>
+            <div className='w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 bg-white/80 border border-ink/10 rounded-2xl overflow-hidden shadow-sm'>
 
                 {/* Left side */}
                 <div className='p-8 md:p-12 flex flex-col justify-center order-2 md:order-1'>

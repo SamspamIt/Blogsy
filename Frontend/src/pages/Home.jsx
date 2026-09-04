@@ -37,11 +37,11 @@ const Home = () => {
         <div className='bg-cream min-h-screen'>
 
             {/* Hero Section */}
-            <div className='text-center px-8 pt-24 pb-20 bg-linear-to-br from-blue-100 via-cream to-pink-100'>
-                <h1 className='font-serif text-5xl text-ink md:text-7xl leading-[1.05] max-w-4xl mx-auto'>
+            <div className='text-center px-8 pt-24 pb-20 bg-linear-to-br from-blue-100/70 via-cream to-pink-100/70 transition-colors duration-300'>
+                <h1 className='font-serif text-5xl text-ink md:text-7xl leading-[1.05] max-w-4xl mx-auto font-bold'>
                     Tech Knowledge, <br/> Built for curious minds.
                 </h1>
-                <p className='text-ink/60 text-lg mt-6 max-w-xl mx-auto'>
+                <p className='text-ink/70 text-lg mt-6 max-w-xl mx-auto'>
                     Real debugging stories, project breakdowns, and lessons from building things that actually ship.
                 </p>
                 <div className='flex flex-wrap items-center justify-center gap-4 mt-10'>
@@ -57,7 +57,7 @@ const Home = () => {
             {/* What you get / numbered list section */}
             <div className='px-8 py-20'>
                 <div className='max-w-4xl mx-auto'>
-                    <h2 className='font-serif text-3xl md:text-2xl-4xl text-ink text-center mb-14'>
+                    <h2 className='font-serif text-3xl md:text-4xl text-ink text-center mb-14 font-bold'>
                         Everything you need to <br/> learn, build, and ship.
                     </h2>
                     <div className='border-t border-ink/15'>
@@ -70,7 +70,7 @@ const Home = () => {
                                     Real debugging stories and project breakdowns, written as they happened.
                                 </p>
                             </div>
-                            <span className='text-ink/30 text-sm font-mono'>
+                            <span className='text-ink/40 text-sm font-mono'>
                                 001
                             </span>
                         </div>
@@ -83,7 +83,7 @@ const Home = () => {
                                     Logic and concepts explained step, by step, no assumed knowledge.
                                 </p>
                             </div>
-                            <span className='text-ink/30 text-sm font-mono'>
+                            <span className='text-ink/40 text-sm font-mono'>
                                 002
                             </span>
                         </div>
@@ -96,7 +96,7 @@ const Home = () => {
                                     Practical takeaways you can apply to your own projects immediately.
                                 </p>
                             </div>
-                            <span className='text-ink/30 text-sm font-mono'>
+                            <span className='text-ink/40 text-sm font-mono'>
                                 003
                             </span>
                         </div>
@@ -109,7 +109,7 @@ const Home = () => {
                                     Focused on progress — things that actually get finished and deployed.
                                 </p>
                             </div>
-                            <span className='text-ink/30 text-sm font-mono'>
+                            <span className='text-ink/40 text-sm font-mono'>
                                 004
                             </span>
                         </div>
@@ -120,36 +120,36 @@ const Home = () => {
             {/* Why Blogsy */}
             <div className='px-8 pb-20'>
                 <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6'>
-                    <div className='bg-white/50 p-8 border border-ink/10'>
+                    <div className='bg-white/80 p-8 border border-ink/10 rounded-2xl shadow-xs hover:shadow-md transition-all'>
                         <p className='text-3xl mb-4'>
                             ✎
                         </p>
                         <h3 className='font-serif text-xl font-bold text-ink mb-2'>
                             Real, not recycled
                         </h3>
-                        <p className='text-ink/60 text-sm leading-relaxed'>
+                        <p className='text-ink/70 text-sm leading-relaxed'>
                             Every post comes from actual debugging sessions and projects built from scratch — no generic tutorials.
                         </p>
                     </div>
-                    <div className='bg-white/50 p-8 border border-ink/10'>
+                    <div className='bg-white/80 p-8 border border-ink/10 rounded-2xl shadow-xs hover:shadow-md transition-all'>
                         <p className='text-3xl mb-4'>
                             ◈
                         </p>
                         <h3 className='font-serif text-xl font-bold text-ink mb-2'>
                             Beginner-friendly logic
                         </h3>
-                        <p className='text-ink/60 text-sm leading-relaxed'>
+                        <p className='text-ink/70 text-sm leading-relaxed'>
                             Concepts explained the way they were actually learned — step by step, no assumed knowledge.
                         </p>
                     </div>
-                    <div className='bg-white/50 p-8 border border-ink/10'>
+                    <div className='bg-white/80 p-8 border border-ink/10 rounded-2xl shadow-xs hover:shadow-md transition-all'>
                         <p className='text-3xl mb-4'>
                             ↗
                         </p>
                         <h3 className='font-serif text-xl font-bold text-ink mb-2'>
                             Built to ship
                         </h3>
-                        <p className='text-ink/60 text-sm leading-relaxed'>
+                        <p className='text-ink/70 text-sm leading-relaxed'>
                             Focused on things that actually get finished and deployed — progress over perfection.
                         </p>
                     </div>
@@ -159,19 +159,19 @@ const Home = () => {
             {/* Featured Blog Section */}
             {blogs.length > 0 && (
                 <div className='px-8 pb-4'>
-                    <div className='max-w-4xl mx-auto bg-white/50 border border-ink/10 grid grid-cols-1 md:grid-cols-2 gap-0'>
+                    <div className='max-w-4xl mx-auto bg-white/80 border border-ink/10 rounded-2xl overflow-hidden shadow-xs grid grid-cols-1 md:grid-cols-2 gap-0'>
                         {blogs[0].coverImage && (
                             <img src={blogs[0].coverImage} alt={blogs[0].title}
                                 className='w-full h-64 md:h-full object-cover'/>
                         )}
                         <div className='p-8 flex flex-col justify-center'>
-                            <span className='text-sm uppercase tracking-widest text-ink/50 mb-2'>
+                            <span className='text-xs uppercase font-mono tracking-widest text-ink/50 mb-2'>
                                 Featured
                             </span>
                             <h3 className='font-serif text-2xl font-bold text-ink mb-3'>
                                 {blogs[0].title}
                             </h3>
-                            <p className='text-ink/60 text-sm mb-6'>
+                            <p className='text-ink/70 text-sm mb-6'>
                                 {blogs[0].excerpt}
                             </p>
                             <div className="pt-2">
